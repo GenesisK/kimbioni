@@ -2,7 +2,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 5rem;
+    justify-content: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 4rem 2rem;
 }
 
 .about-title {
@@ -36,8 +39,7 @@
 }
 
 .about-sections {
-    padding: 2rem;
-    margin-top: 5rem;
+    margin-top: 3.5rem;
     display: flex;
     gap: 4rem;
     align-items: center;
@@ -52,7 +54,7 @@
 .about-pg {
     font-size: 1.2rem;
     font-weight: 300;
-    line-height: 2rem;
+    line-height: 1.6;
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -85,20 +87,15 @@
 }
 
 @media(max-width:1200px) {
-    
+
 
     .about {
-        
-        padding-top: 0;
-        margin-top: 8rem;
-
         h1 {
             font-size: 3.5rem;
         }
     }
 
     .about-sections {
-        margin-top: 3rem;
         flex-wrap: wrap;
         justify-content: center;
         gap: 2rem;
@@ -129,6 +126,14 @@
 
 @media(max-width:750px) {
 
+    .about {
+        min-height: auto;
+        padding: 3rem 1.5rem;
+    }
+
+    .about-sections {
+        margin-top: 2.5rem;
+    }
 
     .about-title {
         font-size: 20px;
@@ -141,9 +146,6 @@
 
 
     .about {
-
-        margin-top: 3rem;
-
         h1 {
             font-size: 3rem;
         }

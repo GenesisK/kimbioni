@@ -1,0 +1,137 @@
+.projects {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 4rem 2rem;
+}
+
+.projects-title {
+    position: relative;
+    z-index: 1;
+
+    h1 {
+        font-size: 3.5rem;
+        font-weight: 600;
+    }
+}
+
+.projects-title_highlight {
+    position: relative;
+    display: inline-block;
+
+    img {
+        position: absolute;
+        z-index: -1;
+        bottom: -5px;
+        right: -15px;
+    }
+}
+
+.projects-grid {
+    width: 100%;
+    max-width: 1100px;
+    margin: 3.5rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.75rem;
+}
+
+.projects-slider {
+    width: 100%;
+    max-width: 1100px;
+    margin: 3.5rem auto 0;
+    overflow: hidden;
+    transition: height .4s ease;
+}
+
+.projects-slider-track {
+    display: flex;
+    transition: transform .7s ease;
+    touch-action: pan-y;
+    cursor: grab;
+    user-select: none;
+}
+
+.projects-slider-track:active {
+    cursor: grabbing;
+}
+
+.projects-slide {
+    flex: 0 0 100%;
+    width: 100%;
+}
+
+.projects-slider .projects-grid {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+.projects-dots {
+    display: flex;
+    justify-content: center;
+    gap: .6rem;
+    margin-top: 2rem;
+
+    button {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: none;
+        padding: 0;
+        background: rgba(255, 255, 255, .2);
+        cursor: pointer;
+        transition: background-color .2s ease;
+    }
+
+    button.active {
+        background: var(--red-logo);
+    }
+
+    button:focus-visible {
+        outline: 2px solid var(--off-white);
+        outline-offset: 3px;
+    }
+}
+
+@media(max-width:750px){
+
+    .projects {
+        min-height: auto;
+        padding: 3rem 1.5rem;
+    }
+
+    .projects-title {
+        h1 {
+            font-size: 3rem;
+        }
+    }
+
+    .projects-title_highlight img {
+        width: 10rem;
+    }
+
+    .projects-grid,
+    .projects-slider {
+        margin-top: 2.5rem;
+    }
+}
+
+@media(max-width:500px){
+
+    .projects-title {
+        z-index: 0;
+
+        h1 {
+            font-size: 2rem;
+        }
+    }
+
+    .projects-title_highlight img {
+        width: 7rem;
+    }
+}

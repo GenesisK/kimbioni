@@ -1,17 +1,22 @@
-import React from 'react'
 import Navbar from './Components/Navbar/Navbar'
 import './App.css'
 import Hero from './Components/Hero/Hero'
 import About from './Components/About/About'
-import Portfolio from './Components/Portfolio/Portfolio'
+import Projects from './Components/Projects/Projects'
+import Footer from './Components/Footer/Footer'
+import BackToTop from './Components/BackToTop/BackToTop'
 
 const App = () => {
   return (
     <div className='container'>
       <Navbar />
-      <Hero />
-      <About />
-      <Portfolio />
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Footer />
+      </main>
+      <BackToTop />
     </div>
   )
 }

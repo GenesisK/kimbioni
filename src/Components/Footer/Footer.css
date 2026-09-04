@@ -1,6 +1,15 @@
 .footer {
     text-align: center;
-    margin-top: 40px;
-    padding-bottom: 16px;
-    letter-spacing: 6px;      
+    margin-top: 6rem;
+    padding: 2rem 0;
+    letter-spacing: 6px;
+    font-size: .9rem;
+    color: rgba(255, 255, 255, .7);
+}
+
+@media(max-width:750px) {
+    .footer {
+        margin-top: 3rem;
+        padding: 1.5rem 0;
+    }
 }

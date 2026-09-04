@@ -1,8 +1,17 @@
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 2rem;
+    padding: 1.25rem 2rem;
+    background: rgba(10, 9, 8, .55);
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
 
     img {
         height: 56px;
@@ -10,17 +19,34 @@
 }
 
 .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 21;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 60px;
     font-size: 1rem;
-    cursor: pointer;
+    height: calc(56px + 2.5rem);
+    padding: 0 2rem;
+    box-sizing: border-box;
+    pointer-events: none;
+
+    ul {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        cursor: pointer;
+        pointer-events: auto;
+    }
 }
 
 .hover-animation {
     position: relative;
   }
-  
+
   .hover-animation::after {
     content: '';
     position: absolute;
@@ -34,7 +60,7 @@
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  
+
   .hover-animation:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
@@ -45,15 +71,33 @@
     color: var(--off-white);
   }
 
-  .nav-mobile-close {
-    display: none;
+  .anchor-link:focus-visible {
+    outline: 2px solid var(--off-white);
+    outline-offset: 4px;
   }
 
+  .nav-mobile-close,
   .nav-mobile-open {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
     display: none;
+
+    img {
+        width: 100%;
+        display: block;
+        pointer-events: none;
+    }
   }
 
-  .nav-socials-mobile-menu {
+  .nav-mobile-close:focus-visible,
+  .nav-mobile-open:focus-visible {
+    outline: 2px solid var(--off-white);
+    outline-offset: 4px;
+  }
+
+  .nav-menu .nav-socials-mobile-menu {
     display: none;
   }
 
@@ -63,13 +107,16 @@
 
 
   @media(max-width:1200px){
-    
-    .navbar{
-      position: absolute;
-      margin: 20px 50px;
+
+    .navbar {
+      background: transparent;
+      border-bottom: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      padding: 0;
     }
 
-    .nav-socials{
+    .navbar .nav-socials{
       display: none;
     }
 
@@ -92,22 +139,37 @@
       position: fixed;
       flex-direction: column;
       align-items: start;
+      justify-content: flex-start;
       top: 0;
+      left: auto;
       gap: 50px;
       background-color: rgba(120, 48, 48, 1);
       width: 360px;
       height: 100%;
-      z-index: 2;
+      z-index: 21;
       transition: right 0.5s;
       right: -360px;
+      padding: 0;
+      pointer-events: auto;
+
+      ul {
+        flex-direction: column;
+        align-items: start;
+        gap: 50px;
+        margin: 0 auto;
+      }
 
       li {
-        font-size: 1.5rem;
+        font-size: 1.15rem;
         margin: 0 auto;
         flex-direction: row;
       }
     }
-    
+
+    .nav-menu.open {
+      right: 0;
+    }
+
     .nav-logo {
       display: none;
     }
@@ -117,14 +179,9 @@
       margin: 0 auto;
     }
 
-    .nav-socials-mobile-menu {
-      display: block;
+    .nav-menu .nav-socials-mobile-menu {
+      display: flex;
+      gap: .75rem;
       margin: 16px auto;
-    }
-  }
-
-  @media(max-width:750px) {
-    .navbar {
-      z-index: 2;
     }
   }

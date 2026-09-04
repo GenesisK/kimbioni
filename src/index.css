@@ -7,8 +7,8 @@
     --light-green: #697565;
     --red-logo: #783030;
     --bg-red-gradient: linear-gradient(to right, #783030, #833d36, #8e493d, #995644, #a3634c, #a3634c, #a3634c, #a3634c, #995644, #8e493d, #833d36, #783030);
-    --bg-black: #161513;
-    --bg-gradient: linear-gradient(to right top, #181c14, #21241c, #2a2c25, #33342e, #3c3d37);
+    --bg-black: #0a0908;
+    --bg-gradient: linear-gradient(to right top, #060605, #0a0908, #100f0c, #151310, #1a1815);
     --margin-comp: 136px;
     
 }

@@ -1,119 +1,61 @@
-import React, { useEffect, useRef } from "react";
+import { useState } from "react";
 import "./Navbar.css";
 import logo from "../../assets/logoKim.png";
 import logoMobile from "../../assets/logoKim.svg";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { SocialIcon } from "react-social-icons/component";
-import "react-social-icons/linkedin";
-import "react-social-icons/instagram";
-import "react-social-icons/github";
-import "react-social-icons/whatsapp";
+import SocialLinks from "../SocialLinks/SocialLinks";
 import menu_open from "../../assets/menu_open.svg";
 import menu_close from "../../assets/menu_close.svg";
 
 const Navbar = () => {
-  //const [menu, setMenu] = useState('home')
-  const menuRef = useRef();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const openMenu = () => {
-    menuRef.current.style.right = "0";
-  };
+  const openMenu = () => setIsMenuOpen(true);
+  const closeMenu = () => setIsMenuOpen(false);
 
-  const closeMenu = () => {
-    menuRef.current.style.right = "-360px";
-  };
-
-  
   return (
-    <div className="navbar" id="home">
-      <img src={logo} alt="logo Kim" className="nav-logo" />
-      <img
-        src={menu_open}
-        onClick={openMenu}
-        alt=""
-        className="nav-mobile-open"
-      />
-      <ul ref={menuRef} className="nav-menu">
-        <img
-          src={menu_close}
+    <>
+      <header className="navbar">
+        <img src={logo} alt="Logo Kim Bioni" className="nav-logo" />
+
+        <button
+          type="button"
+          onClick={openMenu}
+          className="nav-mobile-open"
+          aria-label="Abrir menu"
+          aria-expanded={isMenuOpen}
+        >
+          <img src={menu_open} alt="" aria-hidden="true" />
+        </button>
+
+        <SocialLinks className="nav-socials" />
+      </header>
+
+      <nav className={`nav-menu${isMenuOpen ? " open" : ""}`}>
+        <button
+          type="button"
           onClick={closeMenu}
-          alt=""
           className="nav-mobile-close"
-        />
-        <img src={logoMobile} alt="logo Kim" className="nav-logo-mobile" />
-        <li className="hover-animation">
-          <AnchorLink onClick={closeMenu} className="anchor-link" href="#home">
-            Home
-          </AnchorLink>
-        </li>
-        <li className="hover-animation">
-          <AnchorLink onClick={closeMenu} className="anchor-link" offset="40" href="#about">
-            Sobre mim
-          </AnchorLink>
-        </li>
-        <li className="hover-animation">
-          <AnchorLink onClick={closeMenu} offset="30" className="anchor-link" href="#portfolio1">
-            Portfólio
-          </AnchorLink>
-        </li>
-        <div className="nav-socials-mobile-menu">
-          <SocialIcon
-            className="nav-socials_icons"
-            target="_blank"
-            url="https://www.linkedin.com/in/kim-bioni-9ba8a614b/"
-            bgColor="transparent"
-          />
-          <SocialIcon
-            className="nav-socials_icons"
-            target="_blank"
-            url="https://www.instagram.com/k.bioni"
-            bgColor="transparent"
-          />
-          <SocialIcon
-            className="nav-socials_icons"
-            target="_blank"
-            url="https://github.com/kimbioni"
-            bgColor="transparent"
-          />
-          <SocialIcon
-            className="nav-socials_icons"
-            target="_blank"
-            url="https://wa.me/5515981297246"
-            network="whatsapp"
-            bgColor="transparent"
-          />
-        </div>
-      </ul>
-
-      <div className="nav-socials">
-        <SocialIcon
-          className="nav-socials_icons"
-          target="_blank"
-          url="https://www.linkedin.com/in/kim-bioni-9ba8a614b/"
-          bgColor="transparent"
-        />
-        <SocialIcon
-          className="nav-socials_icons"
-          target="_blank"
-          url="https://www.instagram.com/k.bioni"
-          bgColor="transparent"
-        />
-        <SocialIcon
-          className="nav-socials_icons"
-          target="_blank"
-          url="https://github.com/kimbioni"
-          bgColor="transparent"
-        />
-        <SocialIcon
-          className="nav-socials_icons"
-          target="_blank"
-          url="https://wa.me/5515981297246"
-          network="whatsapp"
-          bgColor="transparent"
-        />
-      </div>
-
-    </div>
+          aria-label="Fechar menu"
+        >
+          <img src={menu_close} alt="" aria-hidden="true" />
+        </button>
+        <img src={logoMobile} alt="Logo Kim Bioni" className="nav-logo-mobile" />
+        <ul>
+          <li className="hover-animation">
+            <AnchorLink onClick={closeMenu} className="anchor-link" href="#about">
+              Sobre mim
+            </AnchorLink>
+          </li>
+          <li className="hover-animation">
+            <AnchorLink onClick={closeMenu} className="anchor-link" offset="70" href="#projects">
+              Projetos
+            </AnchorLink>
+          </li>
+        </ul>
+        <SocialLinks className="nav-socials-mobile-menu" />
+      </nav>
+    </>
   );
 };
 
