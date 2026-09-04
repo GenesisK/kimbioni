@@ -16,7 +16,7 @@ Assistente de Desenvolvimento focado em transformar tarefas repetitivas em fluxo
 
 ### 🌐 Conecte-se Comigo
 
-- **Portfólio:** (https://kimbioni.github.io/kimbioni)
+- **Portfólio:** (https://genesisk.github.io/kimbioni)
 - **LinkedIn:** (https://www.linkedin.com/in/kimbioni/)
 - **Instagram:** (https://instagram.com/k.bioni)
 
